@@ -1,5 +1,12 @@
+../lib/codemirror/codemirror.js
+../lib/codemirror/mode/xml.js
 application/Application.js
 application/User.js
 application/Viewport.js
 
 ui/control/EMail.js
+ui/control/XML.js
+ui/control/YouTubeURL.js
+ui/control/YouTubeVideoBlock.js
+ui/control/AudioBlock.js
+ui/control/AudioFile.js
