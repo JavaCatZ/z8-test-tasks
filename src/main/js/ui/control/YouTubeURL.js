@@ -6,8 +6,7 @@ Z8.define('org.zenframework.z8.template.controls.YouTubeURL', {
 		var videoBlock = DOM.selectNode(document, 'iframe[name="YoutubeVideo"]');
 		
 		if(url && videoBlock) {
-			switch (true)
-			{
+			switch (true) {
 				case (url.indexOf('watch?v=') !== -1):
 					url = url.replace('watch?v=','embed/');
 				break;
@@ -19,7 +18,7 @@ Z8.define('org.zenframework.z8.template.controls.YouTubeURL', {
 				break;
 			}
 			
-			DOM.setAttribute(videoBlock, 'src', url);
+			DOM.setAttribute(videoBlock, 'src', url.slice(0, (url.indexOf('&') !== -1 ? url.indexOf('&') :  url.length)));
 			videoBlock.outerHTML = videoBlock.outerHTML;
 		}
 	}

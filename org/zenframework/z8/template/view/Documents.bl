@@ -78,6 +78,7 @@ public class Documents extends Document {
 	historyList.colSpan = 4;
 	/* flex - если больше 0, компонент растягивается по вертикали и заполняет форму */
 	historyList.flex = 1;
+	xml.flex = 1;
 
 	/*
 	 * Атрибут [ui] определяет JavaScript-класс, изменяющий поведение визуального элемента по умолчанию

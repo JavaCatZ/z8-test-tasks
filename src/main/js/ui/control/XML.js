@@ -1,20 +1,19 @@
 Z8.define('org.zenframework.z8.template.controls.XML', {
 	extend: 'Z8.form.field.TextArea',
 	
-	completeRender: function() {
-		Z8.form.field.TextArea.prototype.completeRender.call(this);
-		
-		if(this.document) 
-		{
-			if(this.nextSibling) {
-				DOM.remove(this.nextSibling);
+	validate: function() {	
+		if(this && DOM.getChildAt(this, 1)) {
+			if(DOM.getChildAt(this, 2))
+			{
+				DOM.remove(DOM.getChildAt(this, 2));
 			}
 			
-			var codeEditor = CodeMirror.fromTextArea(this, {mode: "xml", value: this.getValue()});
-			
+			var codeEditor = CodeMirror.fromTextArea(DOM.getChildAt(this, 1), { mode: "xml", lineNumbers: true });
+			codeEditor.setValue(this.value ? this.value : '');
+				
 			codeEditor.on('change', () => {
-				DOM.setProperty(this, 'value', codeEditor.getValue());
-			});
+				this.value = codeEditor.getValue();
+			})
 		}
 	}
 });

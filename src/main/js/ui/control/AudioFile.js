@@ -7,8 +7,8 @@ Z8.define('org.zenframework.z8.template.controls.AudioFile', {
 		{
 			if(audioFile.length)
 			{
-				console.log(audioFile[0]);
-				DOM.setAttribute(audioBlock, 'src', audioFile[0].path + '?&session=' + Application.session);
+				DOM.setAttribute(audioBlock, 'src', encodeURI((window._DEBUG_ ? '/' : '') + audioFile[0].path.replace(/\\/g, '/')) +
+						'?&session=' + Application.session + (audioFile[0].id != null ? '&id=' + audioFile[0].id : ''));
 				audioBlock.outerHTML = audioBlock.outerHTML;
 			}
 		}
